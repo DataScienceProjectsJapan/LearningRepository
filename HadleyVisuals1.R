@@ -63,4 +63,4 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
   geom_boxplot(mapping = aes(color = class)) + 
   geom_smooth()
 
-
+ggplot(data=diamonds, mapping = aes(x=cut))+geom_bar(aes(fill=cut))
