@@ -1,5 +1,5 @@
 ---
-title: "Tutorial"
+title: "3.5.1 Exercises"
 output: learnr::tutorial
 runtime: shiny_prerendered
 ---
@@ -7,69 +7,124 @@ runtime: shiny_prerendered
 ```{r setup, include=FALSE}
 library(learnr)
 knitr::opts_chunk$set(echo = FALSE)
+library(ggplot2)
 ```
 
 
-## Topic 1
+## 3.5.1 Exercises
 
-### Exercise 
+### 1. What happens if you facet on a continuous variable? 
 
-*Here's a simple exercise with an empty code chunk provided for entering the answer.*
 
-Write the R code required to add two plus two:
+Run the this code:
 
-```{r two-plus-two, exercise=TRUE}
+```{r facet, exercise=TRUE}
+ggplot(data = mpg) + 
+    geom_point(mapping = aes(x = displ, y = hwy)) + 
+    facet_wrap(~ hwy, nrow = 2)
+```
+
+This is the graph that is splitted into facets on continuous value(hwy).
+I could facet on continuous value, but that does not seems to be good because it is splittted into too many parts. The larger the range of continuous value is, the more confusing the graph is.
+
+### 2. What do the empty cells in plot with facet_grid(drv ~ cyl) mean? How do they relate to this plot?
+
+Run the this code:
+
+```{r socond_question, exercise=TRUE}
+
+ggplot(data = mpg) +
+ geom_point(mapping = aes(x = displ, y= hwy)) + 
+ facet_grid(drv ~ cyl)
 
 ```
 
-### Exercise with Code
+```{r socond_question_second_chunk, exercise=TRUE}
 
-*Here's an exercise with some prepopulated code as well as `exercise.lines = 5` to provide a bit more initial room to work.*
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = drv, y = cyl))
 
-Now write a function that adds any two numbers and then call it:
 
-```{r add-function, exercise=TRUE, exercise.lines = 5}
-add <- function() {
-  
-}
+```
+On the first graph, I added additional variables( drv, cyl ) to the graph by using facet_grid.
+On the other hand, 
+Empty sells in the first graph means that there is no data that have the certain combinations of  drv and  cyl
+Second graph does not have such empty cells because it just is plotted with cyl as Y-axis and drv as X-axis.
+
+
+### 3. What plots does the following code make? What does “.” do? 
+
+```{r third_question, exercise=TRUE}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  facet_grid(drv ~ .)
+
 ```
 
-## Topic 2
+```{r third_question_second_chunk, exercise=TRUE}
 
-### Exercise with Hint
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  facet_grid(. ~ cyl)
 
-*Here's an exercise where the chunk is pre-evaulated via the `exercise.eval` option (so the user can see the default output we'd like them to customize). We also add a "hint" to the correct solution via the chunk immediate below labeled `print-limit-hint`.*
-
-Modify the following code to limit the number of rows printed to 5:
-
-```{r print-limit, exercise=TRUE, exercise.eval=TRUE}
-mtcars
 ```
 
-```{r print-limit-hint}
-head(mtcars)
+If we remove “.” from the code above, what happen? Let’s try.
+
+```{r third_question_third_chunk, exercise=TRUE}
+
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) +
+  facet_grid( ~ cyl)
+
+```
+Same plot is made. Therefore, “.” simply states only one variable is added in this code. 
+
+### 4. Take the first faceted plot in this section; What are the advantages to using faceting instead of the colour aesthetic? What are the disadvantages? How might the balance change if you had a larger dataset? 
+
+
+```{r fourth_question, exercise=TRUE, exercise.eval=TRUE}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_wrap(~ class, nrow = 2)
+
+```
+The advantages to using faceting instead of the colour aesthetic is that we can categorize data and identify the correlation without confusion. If we have large dataset, it is difficult for us to distinguish different colours and identify the correlation. However, if added variables is continuous value, using faceting is not good option because that might split plot into too many cells.
+
+### 5. Read ?facet_wrap. What does nrow do? What does ncol do? What other options control the layout of the individual panels? Why doesn’t facet_grid() have nrow and ncol arguments?
+
+ncol and nrow designate the number of row and columns that plot have. 
+For instance, 
+
+```{r fifth_question}
+ggplot(data = mpg) + 
+   geom_point(mapping = aes(x = displ, y = hwy)) + 
+   facet_wrap(~ class, nrow = 3)
+
 ```
 
-### Quiz
+This graph have 3 rows and
 
-*You can include any number of single or multiple choice questions as a quiz. Use the `question` function to define a question and the `quiz` function for grouping multiple questions together.*
+```{r fifth_question_second}
+ggplot(data = mpg) + 
+     geom_point(mapping = aes(x = displ, y = hwy)) + 
+     facet_wrap(~ class, ncol = 1)
 
-Some questions to verify that you understand the purposes of various base and recommended R packages:
-
-```{r quiz}
-quiz(
-  question("Which package contains functions for installing other R packages?",
-    answer("base"),
-    answer("tools"),
-    answer("utils", correct = TRUE),
-    answer("codetools")
-  ),
-  question("Which of the R packages listed below are used to create plots?",
-    answer("lattice", correct = TRUE),
-    answer("tools"),
-    answer("stats"),
-    answer("grid", correct = TRUE)
-  )
-)
 ```
+
+This graph have only 1 column.
+
+There are other arguments that control the layout of the individual panels like strip.position
+
+facet_grid() does not have nrow and ncol arguments because number of row and and col is defined by the number of added variables.
+
+### 6. When using facet_grid() you should usually put the variable with more unique levels in the columns. Why?
+
+I am not sure but I assume that makes us to recognize features that plot have more easily.
+
+
+
+
+
+
 
