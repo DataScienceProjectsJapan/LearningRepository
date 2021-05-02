@@ -1,0 +1,57 @@
+---
+title: ExercisesUpTo3.3.1
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Topic 1
+
+### question 1
+
+
+write the code that will load tidyverse:
+
+```{r two-plus-two, exercise=TRUE}
+
+```
+
+### question 2
+
+if you want learn more about the variables in mpg which code should you run
+
+```{r two-plus-three, exercise=TRUE}
+
+```
+
+### question 3
+
+enter the code that creates a scatter plot
+
+```{r two-plus-four, exercise=TRUE}
+
+```
+
+### question 4
+
+enter the code that adds color to the class 
+
+```{r two-plus-five, exercise=TRUE}
+
+```
+
+### question 5
+
+run the code that adds size to the class.
+
+```{r two-plus-six, exercise=TRUE}
+
+```
+
+
+
