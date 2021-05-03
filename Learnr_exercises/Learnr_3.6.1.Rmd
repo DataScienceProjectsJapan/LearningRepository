@@ -59,7 +59,7 @@ ggplot(data=mpg, mapping = aes(x=, y=)) +
 
 ### Exercise 4
 
-Why does the following code not work as intended ?
+When we run the following code, we get this error message: "Continuous value supplied to discrete scale" How can this which variable should be changed ?
 ```{r 4, exercise=TRUE, exercise.lines=5}
 ggplot() +
   geom_point(data=mpg, mapping= aes(x=displ, y= hwy, color= drv)) +
