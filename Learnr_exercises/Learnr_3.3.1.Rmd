@@ -1,0 +1,62 @@
+---
+title: "Learnr_3.3.1"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+```
+
+
+## Easy
+
+### Exercise 1
+
+Write the R code for putting mpg dataset into a mpg dataframe
+
+```{r 1, exercise=TRUE, exercise.eval=TRUE}
+mpg<- data.frame(mpg)
+```
+
+### Exercise 2  
+
+Write the R code for Viewing the mpg dataframe
+```{r 2, exercise=TRUE, exercise.eval=TRUE}
+View(mpg)
+```
+
+##  Intermediate Level
+
+### Exercise 3
+
+Modify the following code to map the shapes of points to displ variable 
+```{r 3, exercise=TRUE, exercise.eval=TRUE}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy))
+```
+
+### Exercise 4
+
+Quiz
+
+```{r quiz}
+quiz(
+  question("Which of the following are considered asethetics in geom_point ?",
+    answer("fill", correct = TRUE),
+    answer("shape", correct = TRUE),
+    answer("size", correct= TRUE),
+    answer("length")
+  )
+)
+```
+
+## Advanced
+
+### Exercise 5
+
+Divide mpg dataframe into 2 half and plot 2 separate geom_point graphs respectively
+```{r 5, exercise=TRUE, exercise.eval=TRUE}
+```

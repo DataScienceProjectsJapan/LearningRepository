@@ -1,0 +1,78 @@
+---
+title: "Learnr_3.6.1"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+```
+
+
+## Easy
+
+### Exercise 1
+
+Quiz
+
+```{r quiz}
+quiz(
+  question("Which of the following are considered variables in facet_wrap ?",
+    answer("rows"),
+    answer("cols"),
+    answer("nrow", correct= TRUE),
+    answer("ncol", correct= TRUE)
+  )
+)
+```
+
+### Exercise 2  
+
+Quiz  
+
+```{r quiz2}
+quiz(
+  question("Which of the following are considered variables in facet_grid ?",
+    answer("rows", correct= TRUE),
+    answer("cols", correct= TRUE),
+    answer("nrow"),
+    answer("ncol")
+  )
+)
+```
+
+##  Intermediate Level
+
+### Exercise 3
+
+Recreate the R code necessary to generate the following graphs
+```{r 3, exercise=TRUE, include=FALSE, exercise.lines=5}
+ggplot(data=mpg, mapping = aes(x=hwy, y= cty)) +
+  geom_point() +
+  geom_line() +
+```
+
+### Exercise 4
+
+Why does the following code not work as intended ?
+```{r 4, exercise=TRUE, exercise.lines=5}
+ggplot() +
+  geom_point(data=mpg, mapping= aes(x=displ, y= hwy, color= drv)) +
+  geom_line(data=mpg, mapping = aes(x=displ, y= hwy, color= cyl))
+
+```
+
+
+
+## Advanced
+
+### Exercise 5
+
+Write the R code for geom_point, and geom_smooth, with color=class, excluding all 2seater cars
+```{r 5, exercise=TRUE, exercise.eval=TRUE}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+   geom_point(data = filter(mpg, class != "2seater"), mapping = aes(color = class)) + 
+   geom_smooth(data = filter(mpg, class != "2seater"), se= FALSE)
+```
