@@ -64,3 +64,32 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
   geom_smooth()
 
 ggplot(data=diamonds, mapping = aes(x=cut))+geom_bar(aes(fill=cut))
+ggplot(data=diamonds, mapping = aes(x=cut))+geom_bar(aes(fill=cut,y=clarity),stat = "identity")
+ggplot(data=diamonds, mapping = aes(y=cut))+geom_col(aes(fill=cut))
+
+
+ggplot(mtcars, aes(x=factor(cyl)))+
+  geom_bar(stat="bin", width=0.7, fill="steelblue")+
+  theme_minimal()
+df <- data.frame(dose=c("D0.5", "D1", "D2"),
+                 len=c(4.2, 10, 29.5))
+p<-ggplot(df, aes(x=dose, y=len, color=dose)) +
+  geom_bar(stat="identity", fill="white")
+p
+install.packages("RColorBrewer")
+library(RColorBrewer)
+# Use custom color palettes
+p+scale_fill_manual(values=c("#999999", "#E69F00", "#56B4E9"))
+# use brewer color palettes
+p+scale_fill_brewer(palette="Dark2")
+# Use grey scale
+p + scale_fill_grey()
+
+#If we want to use a variable as the height of columns. This gives a plot in which the y variable is a column in the dataset.
+ggplot(data = mpg, aes(x = model,y = displ,fill = class))+geom_bar(stat = "identity")
+#2.We use stat = “bin” when the variable is not a column in the dataset:
+ggplot(data = mpg, aes(x = displ,fill = class))+
+  geom_bar(stat = "bin")
+
+
+
