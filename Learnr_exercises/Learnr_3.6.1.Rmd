@@ -48,8 +48,11 @@ quiz(
 ### Exercise 3
 
 Recreate the R code necessary to generate the following graphs
+
+<!-- ![picture](images/mpgHwyCty.png) -->
+<img src="images/mpgHwyCty.png" alt="drawing" style="width:400px;"/>
 ```{r 3, exercise=TRUE, include=FALSE, exercise.lines=5}
-ggplot(data=mpg, mapping = aes(x=hwy, y= cty)) +
+ggplot(data=mpg, mapping = aes(x=, y=)) +
   geom_point() +
   geom_line() +
 ```
