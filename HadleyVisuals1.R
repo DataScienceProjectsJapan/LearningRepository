@@ -92,4 +92,12 @@ ggplot(data = mpg, aes(x = displ,fill = class))+
   geom_bar(stat = "bin")
 
 
+ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, y = stat(prop), group = 0))
 
+ggplot(economics_long, aes(date, value01)) +
+  geom_line(aes(linetype = variable))
+
+p <- ggplot(nlme::Oxboys, aes(age, height))
+p + geom_line()
+p + geom_line(aes(group = Subject))
