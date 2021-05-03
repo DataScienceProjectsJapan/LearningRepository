@@ -1,0 +1,96 @@
+---
+title: HW
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## ExercisesUpTo3.3.1
+
+### question 1
+
+
+write the code that will load tidyverse:
+
+```{r two-plus-two, exercise=TRUE}
+
+```
+
+### question 2
+
+if you want learn more about the variables in mpg which code should you run
+
+```{r two-plus-three, exercise=TRUE}
+
+```
+
+### question 3
+
+enter the code that creates a scatter plot
+
+```{r two-plus-four, exercise=TRUE}
+
+```
+
+### question 4
+
+enter the code that adds color to the class 
+
+```{r two-plus-five, exercise=TRUE}
+
+```
+
+### question 5
+
+run the code that adds size to the class.
+
+```{r two-plus-six, exercise=TRUE}
+
+```
+
+## ExercisesUpTo3.6.1
+
+### question 1
+
+what is difference between facet_grid and facet_wrap
+
+```{r two-plus-seven, exercise=TRUE}
+
+```
+
+### question 2
+
+run a code with facet_grid in it
+
+```{r two-plus-eight, exercise=TRUE}
+
+```
+
+### question 3
+
+run a code with face_wrap in it.
+
+```{r two-plus-nine, exercise=TRUE}
+
+```
+
+### question 4
+
+run a code with geom_smooth in it
+
+```{r two-plus-ten, exercise=TRUE}
+
+```
+
+### question 5
+
+run a code with geom_piont in it
+
+```{r two-plus-zero, exercise=TRUE}
+
+```
