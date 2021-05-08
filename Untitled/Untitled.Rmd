@@ -1,0 +1,60 @@
+---
+title: "Execise_3.3.1"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+```
+
+## Easy
+### Exercise 1
+
+Run data.frame(mpg). and check what you can see.
+
+```{r 1, exercise=TRUE, exercise.eval=TRUE}
+
+```
+
+### Exercise 2  
+
+Get the documemtation of ggplot using "?" and read "Description".
+```{r 2, exercise=TRUE, exercise.eval=TRUE}
+```
+
+## Intermediate
+### Exercise 3
+
+Modify the following code and change the color of points to read
+```{r 3, exercise=TRUE, exercise.eval=TRUE}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy), color = "blue")
+```
+
+### Exercise 4
+
+
+```{r quiz}
+question("Which of the following is not preferable aesthetics for discrete variable?",
+  answer("color"),
+  answer("shape"),
+  answer("size", correct = TRUE),
+  answer("All aesthetics ablve are preferable aesthetics")
+)
+```
+
+
+## Advance
+### Exercise 5
+
+Create the graph below
+
+<img src="https://d33wubrfki0l68.cloudfront.net/8b89c5554ed6108359d59909d441dbeb010e8802/9f366/visualize_files/figure-html/unnamed-chunk-7-1.png" alt="drawing" style="width:400px;"/>
+
+
+```{r 5, exercise=TRUE, exercise.eval=TRUE}
+```
+
