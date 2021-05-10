@@ -32,7 +32,7 @@ View(mpg)
 
 ### Exercise 3
 
-Modify the following code to map the shapes of points to  variable 
+Modify the following code to map the shapes of points to drv variable 
 ```{r 3, exercise=TRUE, exercise.eval=TRUE}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, shape= drv))
@@ -57,6 +57,17 @@ quiz(
 
 ### Exercise 5
 
-Divide mpg dataframe into 2 half and plot 2 separate geom_point graphs respectively
+Divide mpg dataframe into 2 half and plot 2 separate geom_point graphs respectively with displ on x-axis and hwy on y-axis  
+
 ```{r 5, exercise=TRUE, exercise.eval=TRUE}
+half_size <- floor(0.5*nrow(mpg))
+set.seed(123123)
+mpg_half <- sample(seq_len(nrow(mpg)),size= half_size)
+
+mpg_1 <- mpg[mpg_half, ]
+mpg_2 <- mpg[-mpg_half, ]
+ggplot(data= mpg_1) +
+  geom_point(mapping = aes(x= displ, y = hwy))
+ggplot(data=mpg_2) +
+  geom_point(mapping = aes(x= displ, y = hwy))
 ```
