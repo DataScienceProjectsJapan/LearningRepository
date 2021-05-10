@@ -32,10 +32,10 @@ View(mpg)
 
 ### Exercise 3
 
-Modify the following code to map the shapes of points to displ variable 
+Modify the following code to map the shapes of points to  variable 
 ```{r 3, exercise=TRUE, exercise.eval=TRUE}
 ggplot(data = mpg) + 
-  geom_point(mapping = aes(x = displ, y = hwy))
+  geom_point(mapping = aes(x = displ, y = hwy, shape= drv))
 ```
 
 ### Exercise 4
