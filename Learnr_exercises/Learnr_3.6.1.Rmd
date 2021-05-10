@@ -48,15 +48,16 @@ quiz(
 ### Exercise 3
 
 Recreate the R code necessary to generate the following graphs
-```{r 3, echo=FALSE, exercise.lines=5}
-ggplot(data=mpg, mapping = aes(x=hwy, y= cty)) +
+<img src="images/mpgHwyCty.png" alt="drawing" style="width:400px;"/>
+```{r 3, exercise=TRUE, include=FALSE, exercise.lines=5}
+ggplot(data=mpg, mapping = aes(x=, y=)) +
   geom_point() +
-  geom_line()
+  geom_line() +
 ```
 
 ### Exercise 4
 
-Why does the following code not work as intended ?
+When we run the following code, we get this error message: "Continuous value supplied to discrete scale"  Which variable should be changed to resolve this issue?
 ```{r 4, exercise=TRUE, exercise.lines=5}
 ggplot() +
   geom_point(data=mpg, mapping= aes(x=displ, y= hwy, color= drv)) +
