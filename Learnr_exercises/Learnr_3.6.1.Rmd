@@ -48,10 +48,10 @@ quiz(
 ### Exercise 3
 
 Recreate the R code necessary to generate the following graphs
-```{r 3, exercise=TRUE, include=FALSE, exercise.lines=5}
+```{r 3, echo=FALSE, exercise.lines=5}
 ggplot(data=mpg, mapping = aes(x=hwy, y= cty)) +
   geom_point() +
-  geom_line() +
+  geom_line()
 ```
 
 ### Exercise 4
