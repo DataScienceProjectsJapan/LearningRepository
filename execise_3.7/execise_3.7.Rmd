@@ -1,0 +1,70 @@
+---
+title: "Execise_3.7"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+```
+
+## Easy
+### Exercise 1
+
+In this execise we are going to use new dataset called diamonds.
+Run the code below to get to know diamonds.
+```{r 1, exercise=TRUE, exercise.eval=TRUE}
+?diamonds
+```
+
+### Exercise 2  
+
+```{r quiz}
+question("According to the text, which kind of graph compute a robust summary of the distribution and then display a specially formatted box?",
+  answer("boxplots", correct = TRUE),
+  answer("bar graph"),
+  answer("scatter plot"),
+  answer("spider chart")
+)
+```
+
+## Intermediate
+### Exercise 3
+
+
+
+Run the code below. That code have "stat_count" and you can see the graph. Change variable of x-axis to "color".
+```{r 3, exercise=TRUE, exercise.eval=TRUE}
+ggplot(data = diamonds) + 
+  stat_count(mapping = aes(x = cut))
+```
+### Exercise 4
+Run the code below at first.
+```{r 4, exercise=TRUE, exercise.eval=TRUE}
+ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, y = stat(prop), group = 1))
+```
+
+```{r quiz2}
+question("what does prep in the code mean? ",
+  answer("variable prep"),
+  answer("count of each variable"),
+  answer("what percentage does each varlable occupy.", correct = TRUE),
+  answer("No answer here")
+)
+```
+
+
+
+## Advance
+### Exercise 5
+
+Create the graphs below.(Top and bottom of each line and each point means max value, minimum value and median respectively.)
+
+<img src="https://d33wubrfki0l68.cloudfront.net/4f7c8830283cb7009346ed85a8196b06959f5abd/78175/visualize_files/figure-html/unnamed-chunk-34-1.png" alt="drawing" style="width:400px;"/>
+
+```{r 5, exercise=TRUE, exercise.eval=TRUE}
+```
+
