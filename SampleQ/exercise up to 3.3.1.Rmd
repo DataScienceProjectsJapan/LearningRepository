@@ -7,10 +7,12 @@ runtime: shiny_prerendered
 ```{r setup, include=FALSE}
 library(learnr)
 knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
 ```
 
+#Topic 1
 
-## Topic 1
+## easy
 
 ### question 1
 
@@ -29,9 +31,13 @@ if you want learn more about the variables in mpg which code should you run
 
 ```
 
-### question 3
+## Intermediate
 
-enter the code that creates a scatter plot
+### question 3
+<!-- ![picture](images/Rplot22.png) -->
+<img src="images/Rplot22.png" alt="drawing" style="width:400px;"/>
+
+enter the code that creates the above graph
 
 ```{r two-plus-four, exercise=TRUE}
 
@@ -39,15 +45,29 @@ enter the code that creates a scatter plot
 
 ### question 4
 
-enter the code that adds color to the class 
+<!-- ![picture](images/Rplot23.png) -->
+<img src="images/Rplot23.png" alt="drawing" style="width:400px;"/>
+
+complete the code to create the above graph
 
 ```{r two-plus-five, exercise=TRUE}
 
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, ))
+             
 ```
+
+## hard
 
 ### question 5
 
-run the code that adds size to the class.
+<!-- ![picture](images/Rplot24.png) -->
+<img src="images/Rplot24.png" alt="drawing" style="width:400px;"/>
+
+<!-- ![picture](images/Rplot25.png) -->
+<img src="images/Rplot25.png" alt="drawing" style="width:400px;"/>
+
+run the 2 codes that creates the graph above
 
 ```{r two-plus-six, exercise=TRUE}
 

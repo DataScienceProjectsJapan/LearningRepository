@@ -1,0 +1,74 @@
+---
+title: HW
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Easy
+
+### question 1
+<!-- ![picture](images/Rplot27.png) -->
+<img src="images/Rplot27.png" alt="drawing" style="width:400px;"/>
+
+create the above graph
+
+```{r two-plus-seven, exercise=TRUE}
+
+```
+
+### question 2
+<!-- ![picture](images/Rplot28.png) -->
+<img src="images/Rplot28.png" alt="drawing" style="width:400px;"/>
+
+
+run the code to create the above graph
+
+```{r two-plus-eight, exercise=TRUE}
+
+```
+
+## intermadate
+
+
+### question 3
+<!-- ![picture](images/Rplot29.png) -->
+<img src="images/Rplot29.png" alt="drawing" style="width:400px;"/>
+
+fix the code to create the graph above
+
+```{r two-plus-nine, exercise=TRUE}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, linetype = drv))
+```
+
+### question 4
+<!-- ![picture](images/Rplot30.png) -->
+<img src="images/Rplot30.png" alt="drawing" style="width:400px;"/>
+
+create the above graph
+
+```{r two-plus-ten, exercise=TRUE}
+
+```
+
+## Hard
+
+### question 5
+
+
+
+<!-- ![picture](images/Rplot31.png) -->
+<img src="images/Rplot31.png" alt="drawing" style="width:400px;"/>
+
+finish the code to create the above graph
+
+```{r two-plus-zero, exercise=TRUE}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_point(mapping = aes(color = class)) + 
+  geom_smooth(
+```
