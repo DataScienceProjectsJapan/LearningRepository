@@ -58,6 +58,7 @@ quiz(
 ### Exercise 5
 
 Divide mpg dataframe into 2 half and plot 2 separate geom_point graphs respectively with displ on x-axis and hwy on y-axis  
+**HINT**:"spliting the mpg dataframe requires floor(), set.seed(), sample(), seq_len()"
 
 ```{r 5, exercise=TRUE, exercise.eval=TRUE}
 half_size <- floor(0.5*nrow(mpg))
@@ -66,6 +67,7 @@ mpg_half <- sample(seq_len(nrow(mpg)),size= half_size)
 
 mpg_1 <- mpg[mpg_half, ]
 mpg_2 <- mpg[-mpg_half, ]
+
 ggplot(data= mpg_1) +
   geom_point(mapping = aes(x= displ, y = hwy))
 ggplot(data=mpg_2) +
