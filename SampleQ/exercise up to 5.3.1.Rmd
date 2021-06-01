@@ -1,0 +1,40 @@
+---
+title: HW
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Easy
+
+### question 1
+
+Sort flights to find the most delayed flights. hint(use desc( )).
+
+```{r two-plus-two, exercise=TRUE}
+
+```
+
+## Modrate 
+
+### question 2
+
+write the code to find the Flights that left the earliest.
+
+```{r two-plus-three, exercise=TRUE}
+
+```
+
+## Hard
+
+### question 3
+
+Which flights travelled the farthest? Which travelled the shortest?
+
+```{r two-plus-four, exercise=TRUE}
+
+```

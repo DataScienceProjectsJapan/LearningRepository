@@ -1,0 +1,41 @@
+---
+title: HW
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Easy
+
+### question 1
+
+Use any_of () function to find dep_delay and dep_time vectors. Hint: use any_of(c(    )))
+
+```{r two-plus-two, exercise=TRUE}
+
+```
+
+## modrate
+
+### question 2
+
+find the vectors dep_time, dep_delay, arr_time, arr_delay without using dep_time, dep_delay, arr_time, arr_delay in the function.
+
+```{r two-plus-three, exercise=TRUE}
+
+```
+
+## Hard
+
+### question 3
+
+use the bang bang operator in a function to find the vectors of "dep_time", "dep_delay", "arr_time", "arr_delay".
+
+```{r two-plus-four, exercise=TRUE}
+
+```
+

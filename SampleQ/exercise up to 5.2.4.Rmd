@@ -1,0 +1,40 @@
+---
+title: HW
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Easy
+
+### question 1
+
+Write the code to find the flights that had an arrival delay of 60 minutes or more.
+
+```{r two-plus-two, exercise=TRUE}
+
+```
+
+## Moderate 
+
+### question 2
+
+wirte the code to find flights that departed between January and August
+
+```{r two-plus-three, exercise=TRUE}
+
+```
+
+## Hard
+
+### question 
+
+find the flights that Departed between midnight and 7am (inclusive).
+
+```{r two-plus-four, exercise=TRUE}
+
+```
