@@ -1,0 +1,38 @@
+---
+title: "Execise_5.2"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(nycflights13)
+
+```
+
+## Easy
+### Exercise 1
+
+In this execise, we are going to use filter(). run the code below to get the information of that. 
+```{r 1, exercise=TRUE, exercise.eval=TRUE}
+?filter()
+```
+
+
+## Intermediate
+### Exercise 2
+
+Find all flights that depart from LGA and EWR
+```{r 3, exercise=TRUE, exercise.eval=TRUE}
+
+```
+
+## Advance
+### Exercise 3
+
+Find same flights that code below represents using !()
+```{r 5, exercise=TRUE, exercise.eval=TRUE}
+filter(flights, arr_delay > 60, dep_delay > 60)
+```
