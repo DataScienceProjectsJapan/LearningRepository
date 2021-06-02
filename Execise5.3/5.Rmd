@@ -1,0 +1,58 @@
+---
+title: "Execise5."
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(nycflights13)
+```
+
+
+## Easy
+### Exercise 1
+
+Run the code below and figure out what is printed.
+```{r 1, exercise=TRUE, exercise.eval=TRUE}
+arrange(flights, year)
+```
+
+### Exercise 2  
+
+Use desc() to re-order by a column in descending order.
+```{r 2, exercise=TRUE, exercise.eval=TRUE}
+arrange(flights, dep_delay)
+```
+
+## Intermediate
+### Exercise 3
+
+Find the fastest flight on March 5 2013.
+```{r 3, exercise=TRUE, exercise.eval=TRUE}
+
+```
+
+### Exercise 4
+
+```{r quiz}
+question("Missing values are always sorted at where? ",
+  answer("head"),
+  answer("middle"),
+  answer("Anywhere you designate"),
+  answer("end", correct = TRUE)
+)
+```
+
+
+
+## Advance
+### Exercise 5
+
+Calculate the difference between the flight that travelled the farthest and shortest.
+
+```{r 5, exercise=TRUE, exercise.eval=TRUE}
+
+```
