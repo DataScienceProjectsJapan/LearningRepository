@@ -1,0 +1,39 @@
+---
+title: "Execise5.4.1"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(nycflights13)
+```
+
+
+## Easy
+### Exercise 1
+
+Run ?select() to learn it.
+```{r 1, exercise=TRUE, exercise.eval=TRUE}
+
+```
+
+## Intermediate
+### Exercise 2
+
+Select one column on the "flights"
+```{r 2, exercise=TRUE, exercise.eval=TRUE}
+
+```
+
+
+## Advance
+### Exercise 3
+
+Select the variable called "day" using starts_with(), ends_with(), contains().
+The argument of each function must be one alphabet.
+
+```{r 5, exercise=TRUE, exercise.eval=TRUE}
+```
