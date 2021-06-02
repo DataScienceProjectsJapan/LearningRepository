@@ -1,0 +1,62 @@
+---
+title: "Execise5.5.2"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(nycflights13)
+```
+
+
+## Easy
+### Exercise 1
+
+Run the code below and figure out what is mutate().
+```{r 1, exercise=TRUE, exercise.eval=TRUE}
+?mutate
+```
+
+### Exercise 2  
+
+```{r quiz}
+question("If x <- 2:7, what is lag(x)?",
+  answer("[1] NA  2  3  4  5  6", correct = TRUE),
+  answer("[1] 2  3  4  5  6  NA"),
+  answer("[1] 1  2  3  4  5  6"),
+  answer("[1] 2  3  4  5  6  7")
+)
+```
+
+## Intermediate
+### Exercise 3
+
+Add new varible named "gain"
+gain = dep_delay - arr_delay
+```{r 3, exercise=TRUE, exercise.eval=TRUE}
+```
+
+### Exercise 4
+
+```{r 2quiz}
+question("transmute",
+  answer("change content of the variable"),
+  answer("create new variable and delete old one", correct = TRUE),
+  answer("change the name of variable"),
+  answer("do nothing")
+)
+```
+
+
+
+## Advance
+### Exercise 5
+
+Order "flights" by year,month and day.
+Then, create new variable that represents cumulative sum of  distance.
+
+```{r 5, exercise=TRUE, exercise.eval=TRUE}
+```
