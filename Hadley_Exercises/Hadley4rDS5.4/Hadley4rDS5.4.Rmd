@@ -1,0 +1,74 @@
+---
+title: "5.4.1"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Easy 
+
+### Question 1 (Quiz type)
+
+*we will be using the nycflights database in these exercises*
+
+```{r quiz}
+quiz(
+  question(" The ______ operator allows you to string operations in a left-to-right fashion.",
+    answer("This %<%"),
+    answer("This %%%"),
+    answer("This %>%", correct = TRUE),
+    answer("This >%>%")
+  )
+)
+```
+
+```{r quiz2}
+quiz(
+  question(" Which of the following return a subset of the columns of a data frame?",
+    answer("get"),
+    answer("select", correct = TRUE),
+    answer("set"),
+    answer("retrieve")
+  )
+)
+```
+
+
+## Intermediate
+
+### Question 2
+
+*These questions will be in parts *
+Part1: Make a new variable called delay which will be the total delay from departure to arrival.
+Part2: Since we donot want some variables like arr_time, dep_time etc., let's drop it.
+
+```{r flights, exercise=TRUE, exercise.eval=TRUE}
+?flights
+
+```
+
+```{r flights-hint}
+library(tidyverse)
+library(nycflights13)
+flights$delay <- flights$arr_delay + flights$dep_delay
+select(flights, -c(arr_delay,dep_delay))
+```
+
+## Challenging
+
+### Question 3
+
+Let's remove all the time variables. Can we use any_of to do the same?
+
+```{r Remove, exercise=TRUE, exercise.eval=TRUE}
+
+```
+
+```{r Remove-hint}
+select(flights, -contains("time"))
+```
