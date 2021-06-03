@@ -1,0 +1,78 @@
+---
+title: "Exercise 5.5.2"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Easy
+
+### Question 1 
+
+```{r quiz}
+quiz(
+  question(" ________ add new variables/columns to the existing dataset or transform existing variables.",
+    answer("transmute"),
+    answer("add"),
+    answer("mutate", correct = TRUE),
+    answer("arrange")
+  )
+)
+```
+
+### Question 2
+Let's make a new variable called speed using the mutate function.
+```{r ,exercise=TRUE, exercise.eval=TRUE}
+
+```
+
+## Intermediate
+
+### Question 3
+
+Question is in parts.
+Part 1: Filter the Delta flights ("DL") for the month November and December.
+Part 2: Assign it a new variable name.
+Part 3: Find how many hours and minutes was the air time.
+
+```{r ranking, exercise=TRUE, exercise.eval=TRUE}
+library(tidyverse)
+library(nycflights13)
+flights
+
+```
+
+```{r ranking-hint}
+filtered_data <- filter(flights, month %in% c(11, 12) & carrier == "DL")
+transmute(flights,
+  air_time,
+  hour = air_time %/% 60,
+  minute = air_time - hour*60
+)
+```
+
+### Question 4
+
+Find the lag, lead values, rank in descending order of the following: (1) c(800,340,67,1888,98,0)
+```{r arrange, exercise=TRUE, exercise.eval=TRUE}
+
+
+```
+
+
+
+## Challenging
+
+### Question 5
+
+Find the 5 shortest distance travelled and 5 shortest time taken.
+
+```{r question, exercise=TRUE, exercise.eval=TRUE}
+flights
+
+```
