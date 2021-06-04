@@ -1,0 +1,49 @@
+---
+title: "Learnr_5.2.4"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(nycflights13)
+```
+
+
+## Easy
+
+### Exercise 1  
+
+Find all flights that arrived on Christmas Eve  
+
+```{r 1, exercise=TRUE}
+filter(flights, month == 12 & day == 24)
+```
+
+
+##  Intermediate
+
+### Exercise 2
+
+Find all flights with missing dep_delay, and arr_delay  
+
+```{r 2, exercise=TRUE}
+filter(flights, is.na(dep_delay)&is.na(arr_delay))
+```
+
+## Advanced
+
+### Exercise 3
+
+Find all flights that belong to Mesa Airlines, Hawaiian Airlines, and Alaska Airlines
+
+```{r 3 hint}
+# type airplanes in the console
+```
+
+```{r 3, exercise=TRUE, exercise.eval=TRUE}
+filter(flights, carrier == c("YV","HA","AS"))
+```
+

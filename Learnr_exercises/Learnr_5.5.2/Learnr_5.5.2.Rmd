@@ -1,0 +1,81 @@
+---
+title: "Learnr_5.5.2"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(nycflights13)
+```
+
+
+## Easy
+
+### Exercise 1
+
+Quiz
+
+```{r quiz}
+quiz(
+  question("Which of the following arguments control where new columns should appear in mutate() ?",
+    answer(".data"),
+    answer(".keep"),
+    answer(".before"),
+    answer(".after", correct= TRUE)
+  )
+)
+```
+
+### Exercise 2  
+
+Quiz  
+
+```{r quiz2}
+quiz(
+  question("Using mutate(), What will happen to NULL values in output column ?",
+    answer("removed", correct= TRUE),
+    answer("retained"),
+    answer("changed to NA"),
+    answer("changed to logical(0)")
+  )
+)
+```
+
+##  Intermediate
+
+### Exercise 3
+
+Add a new column called air_time_hours by converting air_time from minutes to hours
+
+```{r 3, exercise=TRUE}
+mutate(flights, air_time_hours = air_time/60)
+```
+
+### Exercise 4
+
+Add a new column called distance_km by converting distance from miles to km (1 mile = 1.61 km)  
+
+```{r 4, exercise=TRUE}
+mutate(flights, distance_km = distance * 1.61)
+```
+
+
+## Advanced
+
+### Exercise 5  
+
+Rank the 10 fastest flights and 10 slowest flights  
+
+```{r 5 hint}
+# use top_n()
+```
+
+
+```{r 5, exercise=TRUE}
+flights <- mutate(flights, speed=distance/air_time)
+arrange(flights, desc(speed)) %>% top_n(10)
+arrange(flights, speed) %>% top_n(10)
+```

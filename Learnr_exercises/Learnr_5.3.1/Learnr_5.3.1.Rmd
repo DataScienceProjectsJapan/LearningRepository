@@ -1,0 +1,73 @@
+---
+title: "Learnr_5.3.1"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(nycflights13)
+```
+
+
+## Easy
+
+### Exercise 1
+
+Quiz
+
+```{r quiz}
+quiz(
+  question("Which of the following are considered arguments in arrange() ?",
+    answer("data"),
+    answer(".data", correct= TRUE),
+    answer("by_group"),
+    answer(".by_group", correct= TRUE)
+  )
+)
+```
+
+### Exercise 2  
+
+Quiz  
+
+```{r quiz2}
+quiz(
+  question("Using arrange() function, where are NA values located ?",
+    answer("top of the data"),
+    answer("randomized"),
+    answer("end of the data", correct= TRUE)
+  )
+)
+```
+
+##  Intermediate
+
+### Exercise 3
+
+Arrange flights based on descending dep_delay  
+
+```{r 3, exercise=TRUE}
+arrange(flights, desc(dep_delay))
+```
+
+### Exercise 4
+
+Arrange flights based on ascending distance
+
+```{r 4, exercise=TRUE}
+arrange(flights, distance)
+```
+
+
+## Advanced
+
+### Exercise 5
+
+Make a new column in flights dataset called speed where speed = distance/air_time. Arrange flights based on descending speed
+```{r 5, exercise=TRUE}
+flights$speed = flights$distance/flights$air_time
+arrange(flights, desc(speed))
+```

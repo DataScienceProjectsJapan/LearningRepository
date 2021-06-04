@@ -1,0 +1,46 @@
+---
+title: "Learnr_5.4.1"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(nycflights13)
+```
+
+
+## Easy
+
+### Exercise 1  
+
+Rename air_time column to airtime 
+
+```{r 1, exercise=TRUE}
+rename(flights, airtime=air_time)
+```
+
+
+##  Intermediate
+
+### Exercise 2
+
+Select all columns except year, month, day column  
+
+```{r 2, exercise=TRUE}
+select(flights, !c(year, month, day))
+```
+
+## Advanced
+
+### Exercise 3
+
+Select all columns not containing the word "time"
+
+```{r 3, exercise=TRUE}
+select(flights, !contains("time"))
+```
+
+
