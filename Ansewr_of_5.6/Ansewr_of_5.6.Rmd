@@ -1,0 +1,72 @@
+1.Brainstorm at least 5 different ways to assess the typical delay characteristics of a group of flights. Consider the following scenarios:
+A flight is 15 minutes early 50% of the time, and 15 minutes late 50% of the time.
+A flight is always 10 minutes late.
+A flight is 30 minutes early 50% of the time, and 30 minutes late 50% of the time.
+99% of the time a flight is on time. 1% of the time it’s 2 hours late.
+Which is more important: arrival delay or departure delay?
+
+I could not figure out what “Brainstorm at least 5 different ways to assess the typical delay characteristics of a group of flights” means. But Arrival delay is more important because it might influence on passenger’s schedule. And additional cost for the compensation occur.
+
+2.Come up with another approach that will give you the same output as not_cancelled %>% count(dest) and not_cancelled %>% count(tailnum, wt = distance) (without using count()).
+
+not_cancelled %>% 
+  group_by(dest) %>% 
+  summarise(n = n())
+
+not_cancelled %>% 
+  group_by(tailnum) %>% 
+  summarise(n = sum(distance))
+
+3. Our definition of cancelled flights (is.na(dep_delay) | is.na(arr_delay) ) is slightly suboptimal. Why? Which is the most important column?
+
+Some flights departed but did not arrived at airport for some reasons. They might crashed on the way to the airport or had problem therefore they changed their destination.
+Thus most important column is arr_delay because numbers of valid elements in this columns represent the number of flights that is operated.
+
+4. Look at the number of cancelled flights per day. Is there a pattern? Is the proportion of cancelled flights related to the average delay?
+ggplot(CancelledPerDay) +
+    geom_point(aes(x = FlightsCounts, y = CancelledCounts))
+<img src="https://file29-d.kuku.lu/thumbs/20210604-2212_5b154db587a0d995a64ab9abc6e5b1ee.jpg"/ alt="drawing" style="width:400px;"/>
+This graph shows that more number of flight means more number of cancelled flights.
+
+ <img src="https://file23-d.kuku.lu/files/20210604-2224_b875d70d036479b135fd5f22c7607b70.png"/ alt="drawing" style="width:400px;"/>
+This graph has Average of arr_delay as X-axis and proportion of cancelled flights as Y-axis.
+Seems they have strong positive correlation.
+
+5. Which carrier has the worst delays? Challenge: can you disentangle the effects of bad airports vs. bad carriers? Why/why not? (Hint: think about flights %>% group_by(carrier, dest) %>% summarise(n()))
+
+flights %>%
++     group_by(carrier) %>%
++     summarise(arr_delay = mean(arr_delay)) %>%
++     arrange(desc(arr_delay))
+# A tibble: 16 x 2
+   carrier arr_delay
+   <chr>       <dbl>
+ 1 F9         21.9  
+ 2 FL         20.1  
+ 3 EV         15.8  
+ 4 YV         15.6  
+ 5 OO         11.9  
+ 6 MQ         10.8  
+
+F9 is the worst carrier
+
+flights %>%
++     group_by(dest) %>%
++     summarise(arr_delay = mean(arr_delay, na.rm = TRUE)) %>%
++     arrange(desc(arr_delay))
+# A tibble: 105 x 2
+   dest  arr_delay
+   <chr>     <dbl>
+ 1 CAE        41.8
+ 2 TUL        33.7
+ 3 OKC        30.6
+ 4 JAC        28.1
+ 5 TYS        24.1
+
+As this table shows, Destination might affect the lateness. Worst airport is CAE and flights to CAE are 41.8 minutes late on average. That’s huge. But I could not disentangle the effects of bad airports vs. bad carriers.
+
+6. What does the sort argument to count() do. When might you use it?
+     The results that is provided with count() are sorted into descending order.
+    We might use it when we want to find maximum count of elements in a column.
+
+
