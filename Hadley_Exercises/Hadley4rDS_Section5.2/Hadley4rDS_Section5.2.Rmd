@@ -52,7 +52,7 @@ nrow(filter(flights, month %in% c(11, 12) & carrier == "DL"))
 
 ### Question 3
 
-Missing data in the flights dataset would suggest the flight being cancelled so we would prefer to remove those. Remove NAs rows from arr_delay and dep_delay.
+Missing data in the flights dataset would suggest the flight being cancelled so we would prefer to remove those. Remove all the rows if there is NA in arr_delay and dep_delay.
 
 ```{r Remove_missing, exercise=TRUE, exercise.eval=TRUE}
 
