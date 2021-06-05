@@ -27,6 +27,7 @@ quiz(
 
 ### Question 2
 Let's make a new variable called speed using the mutate function.
+(Speed = Distance/ Time)
 ```{r ,exercise=TRUE, exercise.eval=TRUE}
 
 ```
