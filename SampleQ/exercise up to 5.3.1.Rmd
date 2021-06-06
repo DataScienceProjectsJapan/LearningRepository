@@ -33,7 +33,7 @@ write the code to find the Flights that left the earliest.
 
 ### question 3
 
-Which flights travelled the farthest? Which travelled the shortest?
+show top 10 flights that traveled the farthest and top 10 that traveled the shortest?
 
 ```{r two-plus-four, exercise=TRUE}
 
