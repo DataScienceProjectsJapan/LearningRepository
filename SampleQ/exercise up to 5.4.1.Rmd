@@ -33,7 +33,7 @@ find the vectors dep_time, dep_delay, arr_time, arr_delay without using dep_time
 
 ### question 3
 
-use the bang bang operator in a function to find the vectors of "dep_time", "dep_delay", "arr_time", "arr_delay".
+use the !! operator in a function to find the vectors of "dep_time", "dep_delay", "arr_time", "arr_delay".
 
 ```{r two-plus-four, exercise=TRUE}
 
