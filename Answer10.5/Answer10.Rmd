@@ -1,0 +1,93 @@
+---
+title: "AnswerOf10.5"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(tidyverse)
+knitr::opts_chunk$set(echo = FALSE)
+```
+## Execise1
+1.	How can you tell if an object is a tibble? (Hint: try printing mtcars, which is a regular data frame).
+Put object in  is_tibble(). If result is True, it is tibble
+
+## Execise2
+2.	Compare and contrast the following operations on a data.frame and equivalent tibble. What is different? Why might the default data frame behaviours cause you frustration?
+
+
+tbl[, "xyz"]
+# A tibble: 1 x 1
+  xyz  
+  <chr>
+1 a    
+tbl[, c("abc", "xyz")]
+# A tibble: 1 x 2
+    abc xyz  
+  <dbl> <chr>
+
+df <- data.frame(abc = 1, xyz = "a")
+df$x
+[1] "a"
+df[, "xyz"]
+[1] "a"
+df[, c("abc", "xyz")]
+  abc xyz
+1   1   a
+
+df$a
+[1] 1
+tbl$a
+NULL
+Warning message:
+Unknown or uninitialised column: `a`. 
+tbl$abc
+[1] 1
+
+As these code above shows, If you want to get column named abc in datafraame, you do not have to designate it with full name of the column.  You just type a. But sometimes it is confusing  if there are columns that have similar name. On the other hand, you have to type full name of the column to designate it.
+
+## Execise3
+3.	If you have the name of a variable stored in an object, e.g. var <- "mpg", how can you extract the reference variable from a tibble?
+df[[var]]
+
+## Execise4
+4. Practice referring to non-syntactic names in the following data frame by:
+
+
+```{r 1, exercise=TRUE, exercise.eval=TRUE}
+tbl2 <- tibble(`1` = 1:5,
+               `2` = seq(2, 10, by=2))
+
+```
+1.	Extracting the variable called 1.
+```{r 2, exercise=TRUE, exercise.eval=TRUE}
+tbl2$'1'
+
+```
+2.	Plotting a scatterplot of 1 vs 2.
+```{r print-limit-hint}
+ggplot(tbl2, aes(x = `1`, y = `2`)) +
+  geom_point()
+
+```
+3.	Creating a new column called 3 which is 2 divided by 1.
+mutate(tbl2, `3` = `2` / `1`)
+
+4.	Renaming the columns to one, two and three.
+tbl2 <- rename(tbl2, one = `1`, two = `2`, three = `3`)
+print(tbl2)
+A tibble: 5 x 3
+    one   two three
+  <int> <dbl> <dbl>
+
+## Execise5
+5.	What does tibble::enframe() do? When might you use it?
+tibble::enframe() converts named vectors to data frame
+
+## Execise6
+6.	 What option controls how many additional column names are printed at the footer of a tibble?
+
+n_extra
+
+
