@@ -16,7 +16,7 @@ library(nycflights13)
 
 ### Exercise 1  
 
-Find all flights that arrived on Christmas Eve  
+Find all flights that arrived on Christmas Eve (24th December)
 
 ```{r 1, exercise=TRUE}
 filter(flights, month == 12 & day == 24)
