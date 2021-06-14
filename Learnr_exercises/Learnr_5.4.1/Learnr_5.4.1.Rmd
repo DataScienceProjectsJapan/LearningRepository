@@ -18,7 +18,7 @@ library(nycflights13)
 
 Rename air_time column to airtime 
 
-```{r 1, exercise=TRUE}
+```{r 1, eval=FALSE, exercise=TRUE, include=FALSE}
 rename(flights, airtime=air_time)
 ```
 
