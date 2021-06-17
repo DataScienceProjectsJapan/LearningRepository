@@ -1,0 +1,47 @@
+---
+title: "Tutorial"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Easy
+
+### question 1
+
+```{r quiz}
+question("what is more important arrival delay or departure delay",
+  answer("arrival delay", correct = TRUE),
+  answer("departure delay")
+)
+```
+
+## moderate
+
+### question 2
+
+<!-- ![picture](images/Rplot99.png) -->
+<img src="images/Rplot99.png" alt="drawing" style="width:400px;"/>
+
+write the code that shows that the number of flights cancelled increases with the total number of flights.
+
+```{r two-plus-four, exercise=TRUE}
+
+```
+
+
+## hard
+
+### question 3
+
+ write the code to show Which carrier has the worst delays?
+ 
+ ```{r two-plus-five, exercise=TRUE}
+
+```
+ 
+ 
