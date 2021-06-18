@@ -1,0 +1,56 @@
+---
+title: "Learnr_5.6.7"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(nycflights13)
+```
+
+
+## Easy
+
+### Exercise 1  
+
+Find the mean air time for each month
+
+```{r 1, exercise = TRUE}
+flights %>% 
+  group_by(year, month) %>%
+  summarise(mean_air_time = mean(air_time, na.rm = TRUE))
+```
+
+
+##  Intermediate
+
+### Exercise 2
+
+Find the median air time for each day of the year
+
+```{r 2, exercise=TRUE}
+flights %>% 
+  group_by(year, month, day) %>%
+  summarise(median_air_time = median(air_time, na.rm = TRUE))
+```
+
+## Advanced
+
+### Exercise 3
+
+Find the first departure and last arrival for each day of the year, and plot a geom_smooth graph displaying their relationship
+
+```{r 3, exercise=TRUE}
+flights %>%
+  filter(!is.na(dep_time)&!is.na(arr_time)) %>%
+  group_by(year, month, day) %>%
+  summarise(first_dep = first(dep_time),
+            last_arr = last(arr_time)) %>%
+  ggplot(aes(first_dep,last_arr)) +
+  geom_smooth()
+```
+
+
