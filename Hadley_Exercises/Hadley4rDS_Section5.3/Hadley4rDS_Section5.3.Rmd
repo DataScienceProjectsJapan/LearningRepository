@@ -1,0 +1,82 @@
+---
+title: "Tutorial"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Easy
+
+### Question 1 
+
+```{r quiz}
+quiz(
+  question(" ________ function is similar to the existing subset() function in R but is quite a bit faster.",
+    answer("rename"),
+    answer("set"),
+    answer("filter", correct = TRUE),
+    answer("subset")
+  )
+)
+```
+
+### Question 2
+
+```{r quiz2}
+quiz(
+  question(" Columns can be arranged in descending order too by using the special ____ operator.",
+    answer("asc()"),
+    answer("desc()", correct = TRUE),
+    answer("descending()"),
+    answer("subset")
+  )
+)
+```
+
+## Intermediate
+
+### Question 3
+
+Make a new variable called delay which will be the total delay from departure to arrival.
+
+```{r delay, exercise=TRUE, exercise.eval=TRUE}
+library(tidyverse)
+library(nycflights13)
+flights
+
+```
+
+```{r delay-hint}
+flights$delay <- flights$arr_delay + flights$dep_delay
+```
+
+### Question 4
+
+In the previous question, we made a new variable called delay. Now let's arrange the delay in descending order.
+```{r arrange, exercise=TRUE, exercise.eval=TRUE}
+flights
+
+```
+
+```{r arrange-hint}
+arrange(flights, desc(delay))
+```
+
+## Challenging
+
+### Question 5
+
+Now that we got the total delay, let's try to find if there is any relation between the distance travelled and delay. If there is any relation then analyze the case for each flight (carrier) using facet.
+
+<img src="C:\Users\hp\Documents\Test Project\seminar class\LearningRepository\Hadley_Exercises\Hadley4rDS_Section5.3\graph.png">
+
+
+```{r arrange_delay, exercise=TRUE, exercise.eval=TRUE}
+flights
+
+```

@@ -1,0 +1,3 @@
+First two questions have their answers in the hint section.
+For question 3, this should work out:
+flights %>% filter(!is.na(arr_delay) & !is.na(dep_delay))

@@ -1,0 +1,62 @@
+---
+title: "Tutorial"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(nycflights13)
+```
+
+
+## Easy
+
+### Exercise 1
+
+First add arr_time and dep_time. Rename it as delay. Find mean delay and remove NAs from the delay using na.rm.
+
+
+```{r q, exercise=TRUE}
+
+```
+
+```{r q-hint}
+summarise(mean_delay = mean(delay,na.rm = TRUE))
+```
+
+
+## Intermediate
+
+### Exercise 2
+
+Find the mean delay of flights given that arr_delay > 30 minutes and find the carrier with the highest delay.
+
+
+```{r print-limit, exercise=TRUE, exercise.eval=TRUE}
+
+```
+
+```{r print-limit-hint}
+flights %>%
+	filter(arr_delay > 30) %>%
+	group_by(carrier) %>%
+	summarise(mean_delay = mean(arr_delay)) %>%
+  arrange(desc(mean_delay))
+```
+
+## Challenging
+
+### Exercise 3
+
+Using flights data, group data by carrier and summarize the data by arr_delay. Finally, plot the summary statistics.
+
+```{r summary_stats, exercise=TRUE, exercise.eval=TRUE}
+flights
+```
+
+```{r summary_stats-hint, exercise=TRUE, exercise.eval=TRUE}
+flights %>% group_by(carrier) %>% summarise(mean_ardelay = mean(arr_delay,na.rm = TRUE)) %>% ggplot(aes(x=carrier, y = mean_ardelay, fill = carrier)) + geom_bar(stat = "identity") + theme_classic()
+```

@@ -1,0 +1,59 @@
+---
+title: "5.2.4"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Easy 
+
+### Question 1 
+
+*we will be using the nycflights database in these exercises*
+
+In the flights dataset, correct the following code so as to find the flights departed in March and April (why is it wrong?): 
+
+```{r Correct_the_code, exercise=TRUE}
+library(nycflights13)
+library(tidyverse)
+filter(flights, month == (3 |4 ))
+```
+
+```{r Correct_the_code-hint}
+# Use infix or match operator (%in% or month == 3| month == 4)
+```
+
+## Intermediate
+
+### Question 2
+
+*These questions will be in parts *
+Part1: Arrange flights in the order of year, month and day
+Part2: Filter Delta flights departed in the month of November and December (carrier is DL)
+How many rows are there now?
+
+```{r flights, exercise=TRUE, exercise.eval=TRUE}
+?flights
+
+```
+
+```{r flights-hint}
+arrange(flights,year, month, day)
+filter(flights, month %in% c(11, 12) & carrier == "DL")
+nrow(filter(flights, month %in% c(11, 12) & carrier == "DL"))
+```
+
+## Challenging
+
+### Question 3
+
+Missing data in the flights dataset would suggest the flight being cancelled so we would prefer to remove those. Remove all the rows if there is NA in arr_delay and dep_delay.
+
+```{r Remove_missing, exercise=TRUE, exercise.eval=TRUE}
+
+```
