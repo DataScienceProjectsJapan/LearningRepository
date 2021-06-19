@@ -1,0 +1,48 @@
+---
+title: "Execise_5.6.7"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(nycflights13)
+```
+
+## Easy
+### Exercise 1
+In this execise, we will use sumarize(). Run the code below to leanrn summrize()
+```{r 1, exercise=TRUE, exercise.eval=TRUE}
+?summarise()
+```
+
+## Intermediate
+### Exercise 2
+
+```{r quiz}
+question("summarise() need another function to be available. what is it?",
+  answer("group_by()", correct = TRUE),
+  answer("sort()"),
+  answer("mutate()"),
+  answer("arrange()")
+)
+```
+
+
+## Advance
+### Exercise 3
+The code below want to get mean of arr_delay per year, month and day.
+But it cannot.
+Modify the code and get mean of arr_delay per year, month and day.
+```{r 5, exercise=TRUE, exercise.eval=TRUE}
+not_cancelled <- flights %>% 
+  filter(!is.na(dep_delay), !is.na(arr_delay))
+
+not_cancelled %>% 
+  group_by(year, month, day) %>% 
+  summarise(
+    avg_delay1 = sum(arr_delay),
+  )
+```
