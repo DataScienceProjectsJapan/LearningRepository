@@ -41,9 +41,10 @@ flights %>%
 
 ### Exercise 3
 
-Find the first departure and last arrival for each day of the year, and plot a geom_smooth graph displaying their relationship
+Find the first departure and last arrival for each day of the year, and plot the following graph  
 
-```{r 3, exercise=TRUE}
+
+```{r 3, echo=FALSE, message=FALSE, warning=FALSE, exercise=FALSE}
 flights %>%
   filter(!is.na(dep_time)&!is.na(arr_time)) %>%
   group_by(year, month, day) %>%
