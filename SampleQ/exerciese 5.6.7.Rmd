@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ### question 1
 
 ```{r quiz}
-question("what is more important arrival delay or departure delay",
+question("which is more important in terms of cost-efficiency (which delay may prove costlier to customer?",
   answer("arrival delay", correct = TRUE),
   answer("departure delay")
 )
