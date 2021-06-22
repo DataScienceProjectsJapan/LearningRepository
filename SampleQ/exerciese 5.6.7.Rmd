@@ -38,7 +38,7 @@ write the code that shows that the number of flights cancelled increases with th
 
 ### question 3
 
- write the code to show Which carrier has the worst delays?
+ write the code to show Which carrier has the worst delays(arr_delay)? Hint: think about flights %>% group_by(carrier, dest) %>% summarise(n())
  
  ```{r two-plus-five, exercise=TRUE}
 
