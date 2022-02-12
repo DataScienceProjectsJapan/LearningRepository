@@ -1,0 +1,171 @@
+---
+title: "Seminar Final Assignment"
+author: "PHAM Le Cong Kien - 12419061"
+date: "10/12/2022"
+output:
+  pdf_document: default
+  html_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tinytex)
+library(readr)
+library(tidyverse)
+library(xts)
+library(lubridate)
+library(quantmod)
+library(PerformanceAnalytics)
+library(ggplot2)
+```
+
+## Ice Cream Production Data
+Read Data and Rename columns
+```{r}
+ice_cream <- read.csv('https://raw.githubusercontent.com/ritvikmath/Time-Series-Analysis/master/ice_cream.csv')
+colnames(ice_cream) <- c("Date","Production")
+head(ice_cream, 10)
+```
+
+Convert date column to date-time type, and get data from 2010 onwards.
+```{r}
+ice_cream$Date = as.Date(ice_cream$Date)
+ice_cream_xts <- xts(ice_cream$Production, ice_cream$Date)
+ice <- ice_cream_xts["2010-01-01/"]
+head(ice, 10)
+```
+
+## ACF
+```{r}
+acf(ice, lag.max = 100, main = "Autocorrelation")
+```
+
+## PACF
+```{r}
+pacf(ice, main = "Partial Autocorrelation")
+```
+
+## Stock Data
+Import data from Yahoo Finance and plot the stock price over time of New York Stock Exchange - NYSE COMPOSITE (DJ) (NYA).
+```{r}
+getSymbols("NYA",
+           src = 'yahoo',
+           from = "2016-1-1",
+           to = "2019-1-1",
+           auto.assign = TRUE,
+           warnings = FALSE
+           )
+
+nya_close <- NYA$NYA.Close
+plot(nya_close, main = "Stock Price over time (NYA)",
+                xlab = "Time",
+                ylab = "Price")
+```
+
+Define First Difference and plot the First Difference over time of NYA.
+```{r}
+first_diff <- diff(nya_close)
+first_diff[is.na(first_diff)] = 0
+plot(first_diff, main = "First Difference over time (NYA)",
+                xlab = "Time",
+                ylab = "Price Difference")
+```
+
+## ACF
+```{r}
+acf(first_diff, main = "Autocorrelation")
+```
+
+## PACF
+```{r}
+pacf(first_diff, main = "Partial Autocorrelation")
+```
+
+## Stock Data
+Import data from Yahoo Finance and plot the stock price over time of VanEck Vectors Vietnam ETF (VNM).
+```{r}
+getSymbols("VNM",
+           src = 'yahoo',
+           from = "2015-1-1",
+           to = "2020-1-1",
+           auto.assign = TRUE,
+           warnings = FALSE
+           )
+
+vnm_close <- VNM$VNM.Close
+plot(vnm_close, main = "Stock Price over time (VNM)",
+                xlab = "Time",
+                ylab = "Price")
+```
+
+Define First Difference and plot the First Difference over time of VNM.
+```{r}
+first_diff <- diff(vnm_close)
+first_diff[is.na(first_diff)] = 0
+plot(first_diff, main = "First Difference over time (VNM)",
+                xlab = "Time",
+                ylab = "Price Difference")
+```
+
+## ACF
+```{r}
+acf(first_diff, main = "Autocorrelation")
+```
+
+## PACF
+```{r}
+pacf(first_diff, main = "Partial Autocorrelation")
+```
+
+## Stock Returns
+This calculates the returns of stock daily of NYA.
+```{r}
+nya_return <- Return.calculate(
+                              nya_close, 
+                              method = "discrete"
+                              ) 
+nya_return0 <-  na.omit(nya_return)
+head(nya_return0, 10)
+```
+
+The graph looks true comparing to the difference above.
+```{r}
+plot(nya_return0, main = "Stock Returns (VNM)",
+                xlab = "Time",
+                ylab = "Price Difference")
+```
+
+## Stock Returns
+This calculates the returns of stock daily of VNM.
+```{r}
+vnm_return <- Return.calculate(
+                              vnm_close, 
+                              method = "discrete"
+                              ) 
+vnm_return0 <-  na.omit(vnm_return)
+head(vnm_return0, 10)
+```
+
+The graph looks true comparing to the difference above.
+```{r}
+plot(vnm_return0, main = "Stock Returns (VNM)",
+                xlab = "Time",
+                ylab = "Price Difference")
+```
+
+## AR Model
+Reflecting Ice Cream Production over time with both predictions and current data.
+```{r}
+train_data <- ice["/2018-12-01"]
+test_data <- ice["2019-01-01/"]
+model_ar <- ar.ols(train_data, order.max = 3)
+pre_ar <- predict(model_ar, n.ahead = 13)
+
+pred_date <- as.xts(zoo(pre_ar$pred, seq(as.Date("2019-01-01"), by = "month", len = 13)))
+data_plot <- merge(pred_date, test_data)
+autoplot(data_plot, facets = NULL) +
+      geom_line(size = 1.25) +
+      ggtitle("Ice Cream Production over time") +
+      labs(x = "Time", y = "Production")
+```
